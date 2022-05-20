@@ -10,8 +10,13 @@
 	<context:component-scan base-package="com.wipro">
 	</context:component-scan>
 
-	<bean id="car" class="com.wipro.Car">
+	<bean id="car" class="com.wipro.Car" scope="singleton">
 		<property name="brand" value="Audy" />
+		<property name="engine" ref="engineId" />
 	</bean>
+
+	<bean id="engineId" class="com.wipro.Engine" />
+
+
 
 </beans>

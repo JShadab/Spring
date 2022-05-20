@@ -1,13 +1,15 @@
 package com.wipro;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.wipro.config.SpringConfig;
 
 public class Application {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+		ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 		// Car car = new Car();
 
