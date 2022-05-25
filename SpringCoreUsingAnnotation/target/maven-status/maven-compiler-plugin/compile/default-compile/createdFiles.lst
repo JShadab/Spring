@@ -1,0 +1,4 @@
+com\wipro\Application.class
+com\wipro\entity\Employee.class
+com\wipro\config\SpringConfig.class
+com\wipro\entity\EmployeeDao.class
