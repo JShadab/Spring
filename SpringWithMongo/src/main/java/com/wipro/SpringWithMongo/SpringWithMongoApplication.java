@@ -1,6 +1,7 @@
 package com.wipro.SpringWithMongo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,13 +24,19 @@ public class SpringWithMongoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-//		Product product = new Product("101", "Mobile", 20, "ELECTRONICS");
+//		Product product = new Product("103", "Laptop", 20, "ELECTRONICS");
 
 		// saveProduct(product);
 
 //		List<Product> allProducts = getAllProducts();
 //
-//		System.out.println(allProducts);
+		System.out.println(getAllProducts());
+
+		System.out.println(getProduct("103"));
+
+		// deleteProduct("102");
+
+		// System.out.println(getAllProducts());
 
 	}
 
@@ -41,6 +48,16 @@ public class SpringWithMongoApplication implements CommandLineRunner {
 	private List<Product> getAllProducts() {
 
 		return productRepository.findAll();
+	}
+
+	private Optional<Product> getProduct(String id) {
+		return productRepository.findById(id);
+
+	}
+
+	private void deleteProduct(String id) {
+		productRepository.deleteById(id);
+
 	}
 
 }
