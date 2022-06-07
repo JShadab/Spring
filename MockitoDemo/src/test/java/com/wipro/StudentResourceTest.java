@@ -16,7 +16,7 @@ public class StudentResourceTest {
 //		StudentDAO studentDAO = new StudentDAO();
 //		StudentService studentService = new StudentService(studentDAO); // REAL
 
-		StudentService studentService = Mockito.mock(StudentService.class); // MOCK -> STUD -> SPY -> PROXY
+		StudentService studentService = Mockito.mock(StudentService.class); // MOCK -> STUB -> SPY -> PROXY
 
 		when(studentService.saveStudent(student)).thenReturn(1);
 

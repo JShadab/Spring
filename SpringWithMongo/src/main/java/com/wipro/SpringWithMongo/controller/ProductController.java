@@ -12,41 +12,41 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.SpringWithMongo.entity.Product;
-import com.wipro.SpringWithMongo.repository.ProductRepository;
+import com.wipro.SpringWithMongo.service.ProductService;
 
 @RestController
 public class ProductController {
 
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductService productService;
 
 	@GetMapping("/getProducts")
 	public List<Product> getAllProducts() {
 
-		return productRepository.findAll();
+		return productService.getAllProducts();
 	}
 
 	@GetMapping("/getProduct/{id}")
 	public Optional<Product> getProduct(@PathVariable String id) {
-		return productRepository.findById(id);
+		return productService.getProduct(id);
 
 	}
 
 	@PostMapping("/saveProduct")
 	public void saveProduct(Product product) {
-		productRepository.save(product);
+		productService.saveProduct(product);
 
 	}
-	
+
 	@PutMapping("/updateProduct")
 	public void updateProduct(Product product) {
-		productRepository.save(product);
+		productService.updateProduct(product);
 
 	}
 
 	@DeleteMapping("/deleteProduct/{id}")
 	public void deleteProduct(@PathVariable String id) {
-		productRepository.deleteById(id);
+		productService.deleteProduct(id);
 
 	}
 }
