@@ -2,12 +2,7 @@ package com.wipro.SpringWithMongo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.atMost;
-import static org.mockito.Mockito.atMostOnce;
-import static org.mockito.Mockito.times;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -89,14 +84,25 @@ class ProductServiceTest {
 //		verify(productService, times(1)).logInfo(); // at least 1 times
 
 	}
-	
+
 	@Test
 	void testUpdateProduct() {
-		assertTrue(false);
+
+		Product product = new Product("501", "Product-A", 50, "Category-1");
+
+		when(productService.updateProduct(any())).thenReturn(product);
+
+		Product updatedProduct = productService.updateProduct(product);
+
+		assertEquals(updatedProduct.getQuantity(), 50);
 	}
+
 	@Test
 	void testDeleteProduct() {
-		assertTrue(false);
+
+		productService.deleteProduct("501");
+
+		verify(productService).deleteProduct("501");
 	}
 
 }
