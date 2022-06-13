@@ -1,4 +1,4 @@
-package com.wipro.niit.SecurityDemo;
+package com.wipro.niit.SecurityDemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class TestController {
 	UserDetailsService userDetailsService;
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<MyResponse> authenticate(@RequestBody  MyRequest request) {
+	public ResponseEntity<MyResponse> authenticate(@RequestBody MyRequest request) {
 
 		UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
 
